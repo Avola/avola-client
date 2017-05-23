@@ -24,10 +24,17 @@ namespace Avola.Demo.ApiClient
         public class Authentication
         {
             public static string Url => Get("authentication.url");
-
+            public static string ClientId => Get("authentication.clientid");
+            public static string Secret => Get("authentication.secret");
+            public static string Thumbprint => Get("authentication.thumbprint");
             public static string Scope => Get("authentication.scope", "avola-api-client");
-
             public static bool ValidateAllServerCertificates => GetBool("authentication.validateallservercertificates");
+        }
+
+        public class Environment
+        {
+            public static string Name => Get("environment.name");
+            public static string Organisation => Get("environment.organisation");
         }
     }
 
