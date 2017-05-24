@@ -1,6 +1,7 @@
 # avola-client
 Example .net client for synchronizing and executing Avola decision services. Use this if you want to connect your own .Net application with the Avola platform.
-To run this sammple, you need a valid [Avola](http://www.avo.la) account! In Avola, you also need a versioned decision.
+
+To run this sample, you need a valid [Avola](http://www.avo.la) account! In Avola, you also need a versioned decision.
 
 ## Getting Started
 This project was created with [Visual Studio 2017](https://www.visualstudio.com/vs/whatsnew/). Any edition, including community, should work fine. Clone the source, and open the solution.
