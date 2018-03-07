@@ -89,14 +89,10 @@
     <Compile Include="Model\ExecutionRequestData.cs" />
     <Compile Include="Model\ExecutionResult.cs" />
     <Compile Include="Model\HitConclusion.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Client.pfx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
