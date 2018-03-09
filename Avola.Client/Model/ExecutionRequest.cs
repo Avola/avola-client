@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Avola.Demo.ApiClient.Model
+namespace Avola.Client.Model
 {
     public class ApiExecutionRequest
     {

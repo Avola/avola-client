@@ -5,34 +5,33 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Cryptography.X509Certificates;
-using Avola.Demo.ApiClient.Model;
+using Avola.Client.Model;
 using Newtonsoft.Json;
 
-namespace Avola.Demo.ApiClient
+namespace Avola.Client
 {
-    public class AvolaApiClient
+    public class AvolaClient
     {
         private readonly string _baseUrl;
         private readonly string _clientId;
         private readonly AvolaApiAuthenticationMessageHandler _handler;
 
-
         private readonly HttpClient _client;
 
-        private AvolaApiClient(string baseUrl, string clientId)
+        private AvolaClient(string baseUrl, string clientId)
         {
             _baseUrl = baseUrl;
             _clientId = clientId;
         }
 
-        public AvolaApiClient(string baseUrl, string clientId, string clientSecret)
+        public AvolaClient(string baseUrl, string clientId, string clientSecret, string authenticationUrl, string authenticationScope, bool validateAllServerCertificates)
             : this(baseUrl, clientId)
         {
-            _handler = new AvolaApiAuthenticationMessageHandler(clientId, clientSecret);
+            _handler = new AvolaApiAuthenticationMessageHandler(clientId, clientSecret, authenticationUrl, authenticationScope, validateAllServerCertificates);
             _client = CreateHttpClient();
         }
 
-        public AvolaApiClient(string baseUrl, string clientId, X509Certificate2 clientCertificate)
+        public AvolaClient(string baseUrl, string clientId, X509Certificate2 clientCertificate)
             : this(baseUrl, clientId)
         {
             _handler = new AvolaApiAuthenticationMessageHandler(clientId, clientCertificate);

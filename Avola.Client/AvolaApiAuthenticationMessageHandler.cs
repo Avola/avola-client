@@ -1,30 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using IdentityModel.Client;
 
-namespace Avola.Demo.ApiClient
+namespace Avola.Client
 {
     internal class AvolaApiAuthenticationMessageHandler : DelegatingHandler
     {
         private readonly string _clientId;
         private readonly string _clientSecret;
+        private readonly string _authenticationUrl;
+        private readonly string _authenticationScope;
+        private readonly bool _validateAllServerCertificates;
         private readonly X509Certificate2 _certificate;
 
         private readonly bool _useCertificate = false;
 
-        public AvolaApiAuthenticationMessageHandler(string clientId, string clientSecret)
+        public AvolaApiAuthenticationMessageHandler(string clientId, string clientSecret, string authenticationUrl, string authenticationScope, bool validateAllServerCertificates)
         {
             _clientId = clientId;
             _clientSecret = clientSecret;
+            _authenticationUrl = authenticationUrl;
+            _authenticationScope = authenticationScope;
+            _validateAllServerCertificates = validateAllServerCertificates;
         }
 
         public AvolaApiAuthenticationMessageHandler(string clientId, X509Certificate2 certificate)
@@ -61,23 +63,23 @@ namespace Avola.Demo.ApiClient
 
         private async Task<TokenResponse> GetTokenWithSecretAsync()
         {
-            var client = new TokenClient(AppSettings.Authentication.Url, _clientId, _clientSecret);
-            return await client.RequestClientCredentialsAsync(AppSettings.Authentication.Scope);
+            var client = new TokenClient(_authenticationUrl, _clientId, _clientSecret);
+            return await client.RequestClientCredentialsAsync(_authenticationScope);
         }
 
         private async Task<TokenResponse> GetTokenWithCertificateAsync()
         {
             var handler = new WebRequestHandler();
-            if (AppSettings.Authentication.ValidateAllServerCertificates) handler.ServerCertificateValidationCallback = (object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) => true;
+            if (_validateAllServerCertificates) handler.ServerCertificateValidationCallback = (object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) => true;
             handler.ClientCertificates.Add(_certificate);
 
             var client = new TokenClient(
-                AppSettings.Authentication.Url,
+                _authenticationUrl,
                 _clientId,
                 handler);
 
 
-            return await client.RequestClientCredentialsAsync(AppSettings.Authentication.Scope);
+            return await client.RequestClientCredentialsAsync(_authenticationScope);
         }
 
     }

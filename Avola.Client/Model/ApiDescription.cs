@@ -1,4 +1,4 @@
-﻿namespace Avola.Demo.ApiClient.Model
+﻿namespace Avola.Client.Model
 {
     public class ApiDescription
     {
