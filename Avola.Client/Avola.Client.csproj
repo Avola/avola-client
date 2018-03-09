@@ -2,15 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.0.2-alpha</Version>
+    <Version>0.0.3-alpha</Version>
     <Authors>Avola Decision</Authors>
     <Product>Avola Decision</Product>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>Add Avola to your application.</Description>
+    <Description>Add Avola to your application. Get an account on https://www.avo.la</Description>
     <Copyright>Avola Decision</Copyright>
     <PackageTags>Avola</PackageTags>
     <RepositoryUrl>https://github.com/Avola/avola-client</RepositoryUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseUrl>https://github.com/Avola/avola-client/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://www.avola-decision.com</PackageProjectUrl>
+    <PackageIconUrl>https://www.avo.la/img/logo-bol.png</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>
