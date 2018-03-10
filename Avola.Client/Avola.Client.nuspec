@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Avola.Client</id>
+    <version>0.1.0-alpha</version>
+    <title>Avola Decision Client</title>
+    <authors>Bart Dupon</authors>
+    <owners>Bart Dupon</owners>
+    <licenseUrl>https://github.com/Avola/avola-client/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/Avola/avola-client</projectUrl>
+    <iconUrl>https://www.avo.la/img/logo-bol.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Avola Decision client library</description>
+    <releaseNotes>Changed target framework from .net standard to .net 4.6.2</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>Avola DMN</tags>
+    <dependencies>
+      <dependency id="IdentityModel" version="[2.1.0]" />
+      <dependency id="Microsoft.AspNet.WebApi.Client" version="5.2.4" />
+      <dependency id="Newtonsoft.Json" version="9.0.1" />
+    </dependencies>
+  </metadata>
+</package>
