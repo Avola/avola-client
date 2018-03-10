@@ -241,7 +241,11 @@ ModelManifest.xml
 # Paket dependency manager
 .paket/paket.exe
 
+# Nuget dependency manager
+.nuget/nuget.exe
+
 # FAKE - F# Make
 .fake/
 /src/Avola.Front.Api/web.config.transformed
 /src/Avola.Front.Api/Avola.Front.Api.XML
+
